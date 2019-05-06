@@ -85,7 +85,7 @@ $ make
 
 and in a minute IFD should be compiled and ready to be executed on the `<FeatureDetector>/bin` folder. `CMakeFiles` is an empty folder created to store the temporary files created by CMake so that IFD root folder remains clean.
 ```
-$ sudo ./imagefeaturedetector
+$ sudo ./featuredetector
 ```
 ## Contribute!
 

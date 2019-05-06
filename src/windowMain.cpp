@@ -168,7 +168,7 @@ WindowMain::WindowMain() : mTotalImages(0) {
 	mUISift.uiPushButtonShowOrientation->setChecked(mSettings->value("sift/showOrientation", true).toBool());
 	connect(mUISift.uiDoubleSpinBoxThreshold, &QSpinBox::editingFinished, this, &WindowMain::saveSiftParams);
 	connect(mUISift.uiDoubleSpinBoxEdgeThreshold, &QSpinBox::editingFinished, this, &WindowMain::saveSiftParams);
-//	connect(mUISift.uiSpinBoxOctaves, &QSpinBox::editingFinished, this, &WindowMain::saveSiftParams);
+	connect(mUISift.uiSpinBoxFeatures, &QSpinBox::editingFinished, this, &WindowMain::saveSiftParams);
 	connect(mUISift.uiSpinBoxLayers, &QSpinBox::editingFinished, this, &WindowMain::saveSiftParams);
 	connect(mUISift.uiPushButtonShowOrientation, &QPushButton::toggled, this, &WindowMain::saveSiftParams);
 	connect(mUISift.uiButtonBox->button(QDialogButtonBox::Apply), &QAbstractButton::clicked, this, &WindowMain::applySift);

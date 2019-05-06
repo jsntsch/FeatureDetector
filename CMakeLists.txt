@@ -3,7 +3,7 @@
 
 cmake_minimum_required(VERSION 2.8.11)
 
-project(imagefeaturedetector)
+project(featuredetector)
 
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin) # http://stackoverflow.com/questions/18826789/cmake-output-build-directory
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -31,22 +31,22 @@ find_package(OpenCV REQUIRED)
 
 
 ## http://stackoverflow.com/questions/3201154/cmake-automatically-add-all-files-in-a-folder-to-a-target
-file(GLOB ImageFeatureDetector_SRC ${CMAKE_SOURCE_DIR}/src/*)
-file(GLOB ImageFeatureDetector_UI ${CMAKE_SOURCE_DIR}/ui/*)
+file(GLOB FeatureDetector_SRC ${CMAKE_SOURCE_DIR}/src/*)
+file(GLOB FeatureDetector_UI ${CMAKE_SOURCE_DIR}/ui/*)
 # file(GLOB ImageFeatureDetector_A ${CMAKE_SOURCE_DIR}/libs/*) # http://stackoverflow.com/questions/14077611/how-do-i-tell-cmake-to-link-in-a-static-library-in-the-source-directory
 
 
 ## http://stackoverflow.com/questions/29968264/linking-and-uic-order-in-a-cmake-qt-project
-qt5_wrap_ui(ImageFeatureDetector_UI_H ${ImageFeatureDetector_UI})
+qt5_wrap_ui(FeatureDetector_UI_H ${FeatureDetector_UI})
 
-add_executable(imagefeaturedetector ${ImageFeatureDetector_SRC} ${ImageFeatureDetector_UI_H})
+add_executable(featuredetector ${FeatureDetector_SRC} ${FeatureDetector_UI_H})
 
-target_link_libraries(imagefeaturedetector Qt5::Core Qt5::Widgets ${OpenCV_LIBS})
+target_link_libraries(featuredetector Qt5::Core Qt5::Widgets ${OpenCV_LIBS})
 # target_link_libraries(imagefeaturedetector Qt5::Core Qt5::Widgets ${ImageFeatureDetector_A} ${CMAKE_THREAD_LIBS_INIT} -lz -ldl)
 
 
 ## http://stackoverflow.com/questions/13429656/cmake-how-to-copy-contents-of-a-directory-into-build-directory-after-make
-add_custom_command(TARGET imagefeaturedetector POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/icons $<TARGET_FILE_DIR:imagefeaturedetector>/icons)
+add_custom_command(TARGET featuredetector POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/icons $<TARGET_FILE_DIR:featuredetector>/icons)
 
 
 ## http://www.cmake.org/Wiki/CMake:Install_Commands
