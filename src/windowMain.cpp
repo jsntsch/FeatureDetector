@@ -420,7 +420,7 @@ void WindowMain::showSiftToolBar() {
 void WindowMain::resetSiftParams() {
 	mUISift.uiDoubleSpinBoxThreshold->setValue(0.014);
 	mUISift.uiDoubleSpinBoxEdgeThreshold->setValue(10.0);
-//	mUISift.uiSpinBoxOctaves->setValue(3);
+	mUISift.uiSpinBoxFeatures->setValue(3);
 	mUISift.uiSpinBoxLayers->setValue(1);
 	mUISift.uiPushButtonShowOrientation->setChecked(true);
 	saveSiftParams();
